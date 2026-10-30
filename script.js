@@ -347,6 +347,45 @@ document.addEventListener('DOMContentLoaded', () => {
     return [];
   }
 
+  // Hydrate index.html homepage projects grid
+  const homeGrid = document.getElementById('homeProjectsGrid');
+  if (homeGrid) {
+    fetchCMSProjects().then((projects) => {
+      if (!projects || projects.length === 0) return;
+      homeGrid.innerHTML = projects.map((p) => {
+        const hero = p.heroImage || 'assets/project-1.png';
+        const title = p.title || 'Untitled Project';
+        const loc = p.location ? `${p.location}.` : 'Nigeria.';
+        const year = p.year || '2026';
+        const slug = p.slug || 'mro';
+
+        return `
+          <article class="framer-project-card">
+            <a href="./case-study.html?slug=${slug}" class="framer-project-img-link" aria-label="${title} Project">
+              <div class="framer-project-img-wrapper">
+                <img src="${hero}" alt="${title} in ${loc}" width="1024" height="938" loading="lazy" />
+              </div>
+            </a>
+            <div class="framer-project-details">
+              <div class="framer-project-info">
+                <h3 class="framer-project-name">${title}</h3>
+                <div class="framer-project-meta">
+                  <span class="framer-project-location">${loc}</span>
+                  <img src="assets/icon-star.svg" alt="" width="12" height="12" class="framer-project-star" aria-hidden="true" />
+                  <span class="framer-project-year">${year}</span>
+                </div>
+              </div>
+              <a href="./case-study.html?slug=${slug}" class="framer-project-cta" aria-label="View ${title} Project">
+                <span>View Project</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    });
+  }
+
   // Hydrate projects.html grid
   const showcaseGrid = document.getElementById('projectsShowcaseGrid');
   if (showcaseGrid) {
