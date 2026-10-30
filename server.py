@@ -56,10 +56,16 @@ class CMSRequestHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path.rstrip("/")
 
-        # Route alias: /admin -> /admin.html
+        # Route aliases
         if path == "/admin":
             self.send_response(301)
             self.send_header("Location", "/admin.html")
+            self.end_headers()
+            return
+
+        if path == "/login":
+            self.send_response(301)
+            self.send_header("Location", "/login.html")
             self.end_headers()
             return
 
@@ -101,6 +107,40 @@ class CMSRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path.rstrip("/")
+
+        if path == "/api/auth/login":
+            content_length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_length).decode("utf-8")
+            try:
+                creds = json.loads(body)
+                user = creds.get("username", "").strip().lower()
+                pw = creds.get("password", "")
+                if user == "admin" and pw == "ResourcesTech2026!":
+                    import time
+                    token = f"rt_auth_{int(time.time())}"
+                    res = json.dumps({"success": True, "token": token, "username": "admin"}).encode("utf-8")
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json")
+                    self.send_header("Content-Length", str(len(res)))
+                    self.end_headers()
+                    self.wfile.write(res)
+                    return
+                else:
+                    err = json.dumps({"error": "Invalid username or password"}).encode("utf-8")
+                    self.send_response(401)
+                    self.send_header("Content-Type", "application/json")
+                    self.send_header("Content-Length", str(len(err)))
+                    self.end_headers()
+                    self.wfile.write(err)
+                    return
+            except Exception as e:
+                err = json.dumps({"error": "Malformed request", "details": str(e)}).encode("utf-8")
+                self.send_response(400)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(err)))
+                self.end_headers()
+                self.wfile.write(err)
+                return
 
         if path == "/api/projects":
             content_length = int(self.headers.get("Content-Length", 0))

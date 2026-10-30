@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    // Immediate Authentication Gate
+    (function() {
+      const token = localStorage.getItem('rt_cms_auth_token') || sessionStorage.getItem('rt_cms_auth_token');
+      if (!token) {
+        document.documentElement.style.display = 'none';
+        window.location.replace('login.html?redirect=admin.html');
+      }
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Resources Tech — Project CMS Dashboard</title>
@@ -768,13 +778,17 @@
         </div>
       </a>
       <div class="admin-nav-actions">
-        <a href="./projects.html" class="btn btn-secondary" target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        <a href="./projects.html" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           View Public Site
         </a>
-        <button class="btn btn-primary" id="btnNewProject">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <button class="btn btn-primary btn-sm" id="btnNewProject">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           Add New Project
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btnSignOut" title="Sign out of CMS">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          Sign Out
         </button>
       </div>
     </div>
@@ -1413,8 +1427,22 @@
       }
     });
 
+
+    // Sign Out Handler
+    const btnSignOut = document.getElementById('btnSignOut');
+    if (btnSignOut) {
+      btnSignOut.addEventListener('click', () => {
+        localStorage.removeItem('rt_cms_auth_token');
+        sessionStorage.removeItem('rt_cms_auth_token');
+        localStorage.removeItem('rt_cms_user');
+        sessionStorage.removeItem('rt_cms_user');
+        window.location.href = 'login.html';
+      });
+    }
+
     // Initial load
     loadProjects();
+
   </script>
 </body>
 </html>
