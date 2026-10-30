@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Resources Tech. System Ltd — We design, integrate, and deliver future-ready ELV and smart building systems for hotels, commercial developments, and critical facilities." />
+  <title>Resources Tech. System Ltd</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR (Framer: 80px, blurred background, border-bottom)
+       ============================================================ -->
+  <header class="framer-navbar" role="banner">
+    <div class="framer-navbar__inner">
+      <!-- Logo -->
+      <a href="./" class="framer-logo" aria-label="Resources Tech. System Ltd">
+        <img src="assets/logo.png" alt="Resources Tech Logo" width="48" height="48" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="framer-nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./" class="framer-nav-link" aria-current="page">Home</a>
+        <a href="./about" class="framer-nav-link">About</a>
+        <a href="./solutions" class="framer-nav-link">Solutions</a>
+        <a href="./projects" class="framer-nav-link">Projects</a>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="framer-nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDropdown">
+        <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="8" x2="21" y2="8"></line>
+          <line x1="3" y1="16" x2="21" y2="16"></line>
+        </svg>
+        <svg id="closeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="framer-mobile-dropdown" id="mobileDropdown" role="region" aria-label="Mobile Navigation">
+      <ul class="framer-mobile-list">
+        <li><a href="./" class="framer-nav-link" aria-current="page">Home</a></li>
+        <li><a href="./about" class="framer-nav-link">About</a></li>
+        <li><a href="./solutions" class="framer-nav-link">Solutions</a></li>
+        <li><a href="./projects" class="framer-nav-link">Projects</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO SECTION (Framer: 844px height, exact typography & box layout)
+         ============================================================ -->
+    <section class="framer-hero" aria-label="Hero Section">
+      <!-- Background Futuristic Blueprint Cityscape -->
+      <div class="framer-hero__bg" aria-hidden="true">
+        <img src="assets/hero-bg.png" alt="Futuristic Cityscape Wireframe" width="1672" height="941" />
+      </div>
+
+      <!-- Ambient dark overlay -->
+      <div class="framer-hero__overlay" aria-hidden="true"></div>
+
+      <!-- Hero Glass Card / Container -->
+      <div class="framer-hero-container">
+        <!-- Covering border box with backdrop blur -->
+        <div class="framer-hero-covering" aria-hidden="true"></div>
+
+        <!-- Content inside container: Text on left, CTAs on right -->
+        <div class="framer-hero-content">
+          <!-- Text Container -->
+          <div class="framer-text-container">
+            <h1 class="framer-hero-headline">
+              Engineering Intelligent Infrastructure for Africa’s Next Decade
+            </h1>
+            <p class="framer-hero-subtitle">
+              We design, integrate, and deliver future-ready ELV and smart building systems for hotels, commercial developments, and critical facilities.
+            </p>
+          </div>
+
+          <!-- CTAs Container -->
+          <div class="framer-ctas">
+            <!-- Primary Action -->
+            <a href="./solutions" class="btn-primary" role="button">
+              <span>Explore Our Solutions</span>
+            </a>
+            <!-- Secondary Action -->
+            <a href="./projects" class="btn-secondary" role="button">
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BRAND STATEMENT SECTION (Framer: .framer-kbz4u5)
+         ============================================================ -->
+    <section class="framer-brand-statement" aria-label="Brand Statement">
+      <div class="framer-brand-statement__inner">
+        <!-- Scroll-illuminated Editorial Statement -->
+        <blockquote class="framer-statement-text" id="revealText">
+          At Resources Technologies Systems Limited, we believe that infrastructure is more than just hardware — it is the central nervous system of modern architecture. We have had almost a decade of technical precision; we partner with developers and enterprises to bridge the gap between complex engineering and seamless operational excellence.
+        </blockquote>
+
+        <!-- About Us Button -->
+        <div class="framer-statement-btn-container">
+          <a href="./about" class="btn-about-us" role="button">
+            <span>About Us</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICE SPHERES SECTION (Framer: .framer-1d1qil4)
+         Sticky Stacking Cards with Centered Flex Alignment
+         ============================================================ -->
+    <section class="framer-system-section" id="solutions" aria-labelledby="spheresHeading">
+      <div class="framer-system-inner">
+        <!-- Section Heading -->
+        <div class="framer-spheres-heading-container">
+          <h2 id="spheresHeading" class="framer-spheres-title">Service Spheres</h2>
+        </div>
+
+        <!-- Spheres Sticky Stacking List -->
+        <div class="framer-spheres-list">
+          <!-- Sphere A: The Connectivity Framework -->
+          <article class="framer-sphere-card" aria-label="The Connectivity Framework">
+            <div class="framer-sphere-visual" aria-hidden="true">
+              <img src="assets/sphere-a.svg" alt="The Connectivity Framework 3D Graphic" width="522" height="617" />
+            </div>
+            <div class="framer-sphere-content">
+              <div class="framer-sphere-label">
+                <span class="framer-sphere-chip">/A</span>
+              </div>
+              <div class="framer-sphere-details">
+                <h3 class="framer-sphere-item-title">
+                  The Connectivity Framework: The Brain of the Infrastructure
+                </h3>
+                <div class="framer-sphere-descriptions">
+                  <p>
+                    <strong>Mission-Critical Data Architectures</strong>: Engineering the high-speed pathways that power enterprise operations.
+                  </p>
+                  <p>
+                    <strong>Unified Communications</strong>: Seamlessly integrating voice, video, and data into a single, cohesive interface.
+                  </p>
+                  <p>
+                    <strong>Cloud-Ready Infrastructure</strong>: Scalable networking solutions designed for the digital-first era.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sphere B: The Safety & Intelligence Suite -->
+          <article class="framer-sphere-card" aria-label="The Safety & Intelligence Suite">
+            <div class="framer-sphere-visual" aria-hidden="true">
+              <img src="assets/sphere-b.svg" alt="The Safety & Intelligence Suite 3D Graphic" width="522" height="617" />
+            </div>
+            <div class="framer-sphere-content">
+              <div class="framer-sphere-label">
+                <span class="framer-sphere-chip">/B</span>
+              </div>
+              <div class="framer-sphere-details">
+                <h3 class="framer-sphere-item-title">
+                  The Safety &amp; Intelligence Suite. The Shield of the Infrastructure
+                </h3>
+                <div class="framer-sphere-descriptions">
+                  <p>
+                    <strong>Predictive Fire Intelligence</strong>: Life-safety systems that go beyond detection to provide advanced early-warning protocols.
+                  </p>
+                  <p>
+                    <strong>High-Fidelity Surveillance</strong>: Visual intelligence that ensures total situational awareness across complex environments and locations.
+                  </p>
+                  <p>
+                    <strong>Biometric &amp; Access Governance</strong>: Sophisticated entry management that balances high security with user fluidity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sphere C: The Living Infrastructure -->
+          <article class="framer-sphere-card" aria-label="The Living Infrastructure">
+            <div class="framer-sphere-visual" aria-hidden="true">
+              <img src="assets/sphere-c.svg" alt="The Living Infrastructure 3D Graphic" width="522" height="617" />
+            </div>
+            <div class="framer-sphere-content">
+              <div class="framer-sphere-label">
+                <span class="framer-sphere-chip">/C</span>
+              </div>
+              <div class="framer-sphere-details">
+                <h3 class="framer-sphere-item-title">
+                  The Living Infrastructure. The Central Nervous System
+                </h3>
+                <div class="framer-sphere-descriptions">
+                  <p>
+                    <strong>Intelligent Building Management</strong>: Unifying HVAC, lighting, and power into a centralised, energy-efficient ecosystem.
+                  </p>
+                  <p>
+                    <strong>Environmental Automation</strong>: Creating responsive spaces that adapt to the needs of the occupants in real-time.
+                  </p>
+                  <p>
+                    <strong>The Digital Backbone</strong>: Consolidating contrasting ELV systems into a single, manageable architecture.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         OUR SOLUTION & CAPABILITIES (Framer: .framer-16dqxpm)
+         2x2 Grid + 1 Feature Card Layout
+         ============================================================ -->
+    <section class="framer-capabilities-section" aria-labelledby="capabilitiesHeading">
+      <div class="framer-capabilities-inner">
+        <!-- Section Heading -->
+        <div class="framer-capabilities-heading-container">
+          <h2 id="capabilitiesHeading" class="framer-capabilities-title">Our Solution &amp; Capabilities</h2>
+        </div>
+
+        <!-- 2x2 Grid + 1 Structure -->
+        <div class="framer-capabilities-grid">
+          <!-- Column 1 (2 stacked cards) -->
+          <div class="framer-cap-column">
+            <!-- Card 1: Proactive threat prevention -->
+            <article class="framer-cap-card">
+              <h3 class="framer-cap-card-title">Proactive threat prevention &amp; asset shielding</h3>
+              <a href="./solutions" class="framer-cap-cta">
+                <span>Read More</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+              <div class="framer-cap-watermark" aria-hidden="true">
+                <img src="assets/icon-shield.svg" alt="" width="160" height="160" />
+              </div>
+            </article>
+
+            <!-- Card 2: Automated environmental & energy control -->
+            <article class="framer-cap-card">
+              <h3 class="framer-cap-card-title">Automated environmental &amp; energy control</h3>
+              <a href="./solutions" class="framer-cap-cta">
+                <span>Read More</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+              <div class="framer-cap-watermark" aria-hidden="true">
+                <img src="assets/icon-smart-building.svg" alt="" width="160" height="160" />
+              </div>
+            </article>
+          </div>
+
+          <!-- Column 2 (2 stacked cards) -->
+          <div class="framer-cap-column">
+            <!-- Card 3: Uninterrupted business continuity -->
+            <article class="framer-cap-card">
+              <h3 class="framer-cap-card-title">Uninterrupted business continuity</h3>
+              <a href="./solutions" class="framer-cap-cta">
+                <span>Read More</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+              <div class="framer-cap-watermark" aria-hidden="true">
+                <img src="assets/icon-connection.svg" alt="" width="160" height="160" />
+              </div>
+            </article>
+
+            <!-- Card 4: Critical risk mitigation -->
+            <article class="framer-cap-card">
+              <h3 class="framer-cap-card-title">Critical risk mitigation &amp; life-safety assurance</h3>
+              <a href="./solutions" class="framer-cap-cta">
+                <span>Read More</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+              <div class="framer-cap-watermark" aria-hidden="true">
+                <img src="assets/icon-life-safety.svg" alt="" width="160" height="160" />
+              </div>
+            </article>
+          </div>
+
+          <!-- Column 3 (Tall Feature Card) -->
+          <div class="framer-cap-column framer-cap-column--tall">
+            <!-- Card 5: Total operational visibility -->
+            <article class="framer-cap-card framer-cap-card--tall">
+              <h3 class="framer-cap-card-title framer-cap-card-title--tall">Total operational visibility</h3>
+              <a href="./solutions" class="framer-cap-cta">
+                <span>Read More</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+              <div class="framer-cap-watermark framer-cap-watermark--tall" aria-hidden="true">
+                <img src="assets/icon-settings.svg" alt="" width="160" height="160" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: OUR PROJECTS                                               -->
+    <!-- ===================================================================== -->
+    <section class="framer-projects-section" aria-labelledby="projectsHeading">
+      <div class="framer-projects-inner">
+        <!-- Section Heading -->
+        <div class="framer-projects-heading-container">
+          <h2 id="projectsHeading" class="framer-projects-title">Our Projects</h2>
+        </div>
+
+        <!-- Projects Grid / Row -->
+        <div class="framer-projects-grid">
+          <!-- Project Card 1: MRO -->
+          <article class="framer-project-card">
+            <a href="./project-name/project-name" class="framer-project-img-link" aria-label="MRO Project">
+              <div class="framer-project-img-wrapper">
+                <img src="assets/project-1.png" alt="MRO Tactical Aircraft Hangar" width="1024" height="938" loading="lazy" />
+              </div>
+            </a>
+            <div class="framer-project-details">
+              <div class="framer-project-info">
+                <h3 class="framer-project-name">MRO</h3>
+                <div class="framer-project-meta">
+                  <span class="framer-project-location">Uyo, Nigeria.</span>
+                  <img src="assets/icon-star.svg" alt="" width="12" height="12" class="framer-project-star" aria-hidden="true" />
+                  <span class="framer-project-year">2026</span>
+                </div>
+              </div>
+              <a href="./project-name/project-name" class="framer-project-cta" aria-label="View MRO Project">
+                <span>View Project</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card 2: Luxury Residential Home -->
+          <article class="framer-project-card">
+            <a href="./project-name/project-name" class="framer-project-img-link" aria-label="Luxury Residential Home Project">
+              <div class="framer-project-img-wrapper">
+                <img src="assets/project-2.jpg" alt="Luxury Residential Home" width="1024" height="938" loading="lazy" />
+              </div>
+            </a>
+            <div class="framer-project-details">
+              <div class="framer-project-info">
+                <h3 class="framer-project-name">Luxury Residential Home</h3>
+                <div class="framer-project-meta">
+                  <span class="framer-project-location">Lagos, Nigeria.</span>
+                  <img src="assets/icon-star.svg" alt="" width="12" height="12" class="framer-project-star" aria-hidden="true" />
+                  <span class="framer-project-year">2026</span>
+                </div>
+              </div>
+              <a href="./project-name/project-name" class="framer-project-cta" aria-label="View Luxury Residential Home Project">
+                <span>View Project</span>
+                <img src="assets/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- CTA Action Button -->
+        <div class="framer-projects-action">
+          <a href="./projects" class="framer-btn-secondary" role="button">
+            <span>View Live Project</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 6: INDUSTRIES WE SERVE                                        -->
+    <!-- ===================================================================== -->
+    <section class="framer-industries-section" aria-labelledby="industriesHeading">
+      <div class="framer-industries-heading-container">
+        <h2 id="industriesHeading" class="framer-industries-title">Industries We Serve</h2>
+      </div>
+
+      <div class="framer-industries-stage">
+        <!-- Blueprint Perspective Background -->
+        <div class="framer-industries-bg-wrapper" aria-hidden="true">
+          <img src="assets/industries-bg.png" alt="" width="2880" height="640" loading="lazy" />
+        </div>
+
+        <!-- Stepped Industry Tabs -->
+        <div class="framer-industry-item framer-industry-item--1">
+          <span class="framer-industry-name">Hotels &amp; Hospitality</span>
+        </div>
+        <div class="framer-industry-item framer-industry-item--2">
+          <span class="framer-industry-name">Commercial Buildings</span>
+        </div>
+        <div class="framer-industry-item framer-industry-item--3">
+          <span class="framer-industry-name">Mixed-Use Developments</span>
+        </div>
+        <div class="framer-industry-item framer-industry-item--4">
+          <span class="framer-industry-name">Industrial Facilities</span>
+        </div>
+        <div class="framer-industry-item framer-industry-item--5">
+          <span class="framer-industry-name">Institutional Campuses</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 7: READY TO FORTIFY YOUR FACILITY                             -->
+    <!-- ===================================================================== -->
+    <section class="framer-fortify-section" aria-labelledby="fortifyHeading">
+      <!-- Radial Sunburst Background Rays -->
+      <div class="framer-fortify-bg" aria-hidden="true">
+        <img src="assets/sunburst-rays.jpg" alt="" width="562" height="1000" loading="lazy" />
+      </div>
+
+      <div class="framer-fortify-inner">
+        <!-- 3D Padlock Graphic -->
+        <div class="framer-padlock-stage" aria-hidden="true">
+          <div class="framer-padlock">
+            <!-- Shackle / Handle -->
+            <div class="framer-padlock-handle">
+              <img src="assets/padlock-handle.svg" alt="" width="215" height="210" />
+            </div>
+            <!-- Padlock Body -->
+            <div class="framer-padlock-body"></div>
+            <!-- Combination Pin Digits -->
+            <div class="framer-padlock-pins">
+              <div class="framer-padlock-pin">
+                <span>4</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>0</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy & CTA Container -->
+        <div class="framer-fortify-content">
+          <div class="framer-fortify-text">
+            <h2 id="fortifyHeading" class="framer-fortify-title">Ready to Fortify Your Facility</h2>
+            <p class="framer-fortify-desc">
+              Let&rsquo;s discuss your facility, system requirements &amp; long-term objectives. We will guide you from concept through commissioning
+            </p>
+          </div>
+
+          <div class="framer-fortify-cta-wrap">
+            <a href="./contact" class="framer-btn-primary" role="button">
+              <span>Request Site Survey</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="framer-footer" role="contentinfo">
+    <div class="framer-footer-inner">
+      <!-- Centered Horizontal Logo Mark -->
+      <div class="framer-footer-brand">
+        <a href="./" class="framer-footer-logo-link" aria-label="Resources Tech Home">
+          <img src="assets/footer-logo-cropped.png" alt="Resources Technologies Systems Limited" width="835" height="140" loading="lazy" />
+        </a>
+      </div>
+
+      <!-- Footer Bottom Row: Copyright + Nav Links -->
+      <div class="framer-footer-bottom">
+        <div class="framer-footer-copy">
+          <p>&copy;2026 Resources Tech. System Ltd. All Rights Reserved.</p>
+        </div>
+
+        <nav class="framer-footer-nav" aria-label="Footer navigation">
+          <a href="./" class="framer-footer-link is-current">Home</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./about" class="framer-footer-link">About</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./solutions" class="framer-footer-link">Solutions</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./projects" class="framer-footer-link">Projects</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./contact" class="framer-footer-link">Contact</a>
+          <span class="framer-footer-divider" aria-hidden="true"><img src="assets/footer-divider.svg" alt="" width="3" height="16" /></span>
+          <a href="./admin.html" class="framer-footer-link" style="color: #10b981;">CMS Portal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

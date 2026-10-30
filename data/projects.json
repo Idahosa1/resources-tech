@@ -1,0 +1,71 @@
+[
+  {
+    "id": "proj-1",
+    "slug": "mro",
+    "title": "MRO",
+    "type": "Aviation Infrastructure",
+    "location": "Uyo, Nigeria",
+    "year": "2026",
+    "heroImage": "assets/project-1.png",
+    "overview": [
+      "Resource Technologies Systems Ltd was engaged to design and implement integrated ELV systems for a state-of-the-art aircraft Maintenance, Repair, and Overhaul (MRO) facility completed in 2024.",
+      "The project emphasized structured infrastructure, clean system separation, and long-term serviceability rather than short-term installation speed."
+    ],
+    "systems": [
+      "Structured Cabling Infrastructure",
+      "CCTV Surveillance System",
+      "Access Control Provisions",
+      "Fire Detection Provisions"
+    ],
+    "approach": [
+      "Review of architectural layouts and coordination with other trades",
+      "Standards-based cable routing and containment strategy",
+      "Proper zoning and device positioning for safety and coverage",
+      "Clear labeling, documentation, and handover readiness"
+    ],
+    "outcome": "The project was delivered in line with design intent and functional requirements. All systems were tested and verified, with infrastructure designed to accommodate future expansion or system upgrades without major rework.",
+    "gallery": [
+      "assets/gallery-1.png",
+      "assets/gallery-2.png",
+      "assets/gallery-3.png",
+      "assets/gallery-4.png",
+      "assets/gallery-5.png",
+      "assets/gallery-6.png"
+    ],
+    "whyMatters": "This project reflects our core philosophy: engineering clarity, standards compliance, and long-term system performance over volume-based execution."
+  },
+  {
+    "id": "proj-2",
+    "slug": "luxury-residential-home",
+    "title": "Luxury Residential Home",
+    "type": "Private Residential",
+    "location": "Lagos, Nigeria",
+    "year": "2026",
+    "heroImage": "assets/project-2.jpg",
+    "overview": [
+      "Engaged by a discerning private client in Lagos to architect and commission a unified, high-security smart residential ecosystem spanning 1,400 square meters.",
+      "The residence demanded absolute physical concealment of core containment paths while ensuring uninterrupted multi-gigabit coverage and biometric perimeter security."
+    ],
+    "systems": [
+      "High-Speed Fiber Backbone & Structured Cat6A Cabling",
+      "AI-Powered Perimeter Intrusion Detection & PTZ Surveillance",
+      "Encrypted Biometric & RFID Access Control Gates",
+      "Integrated Climate, Lighting & Smart Energy Automation"
+    ],
+    "approach": [
+      "Early MEP integration modeling to route all backbone pathways prior to interior cladding",
+      "Segregated VLAN topologies isolating guest IoT systems from mission-critical security hardware",
+      "Acoustic and thermal isolation of centralized equipment racks in a dedicated utility room",
+      "Comprehensive stress testing, load balancing, and handover with full schematic manuals"
+    ],
+    "outcome": "Completed ahead of schedule with zero visible cabling. The client enjoys seamless whole-home automated access control, enterprise-grade network throughput, and real-time perimeter alert integration.",
+    "gallery": [
+      "assets/gallery-2.png",
+      "assets/gallery-3.png",
+      "assets/gallery-5.png",
+      "assets/gallery-6.png",
+      "assets/project-2.jpg"
+    ],
+    "whyMatters": "Demonstrates our ability to apply enterprise-grade infrastructure discipline and aesthetics to high-end residential luxury properties."
+  }
+]

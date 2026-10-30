@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Projects — Resources Technologies Systems Limited: Mission-critical infrastructure, engineering excellence, and landmark installations across Africa." />
+  <title>Projects — Resources Tech. System Ltd</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================================================================== -->
+  <!-- NAVBAR (Framer: 80px, blurred background, border-bottom)              -->
+  <!-- ===================================================================== -->
+  <header class="framer-navbar" role="banner">
+    <div class="framer-navbar__inner">
+      <!-- Logo -->
+      <a href="./" class="framer-logo" aria-label="Resources Tech. System Ltd">
+        <img src="assets/logo.png" alt="Resources Tech Logo" width="48" height="48" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="framer-nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./" class="framer-nav-link">Home</a>
+        <a href="./about" class="framer-nav-link">About</a>
+        <a href="./solutions" class="framer-nav-link">Solutions</a>
+        <a href="./projects" class="framer-nav-link is-active" aria-current="page">Projects</a>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="framer-nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDropdown">
+        <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="8" x2="21" y2="8"></line>
+          <line x1="3" y1="16" x2="21" y2="16"></line>
+        </svg>
+        <svg id="closeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="framer-mobile-dropdown" id="mobileDropdown" role="region" aria-label="Mobile Navigation">
+      <ul class="framer-mobile-list">
+        <li><a href="./" class="framer-nav-link">Home</a></li>
+        <li><a href="./about" class="framer-nav-link">About</a></li>
+        <li><a href="./solutions" class="framer-nav-link">Solutions</a></li>
+        <li><a href="./projects" class="framer-nav-link is-active" aria-current="page">Projects</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT                                                          -->
+  <!-- ===================================================================== -->
+  <main>
+    <!-- =================================================================== -->
+    <!-- SECTION 1: PROJECTS HERO SECTION                                    -->
+    <!-- =================================================================== -->
+    <section class="framer-projects-hero" aria-label="Projects Header">
+      <!-- High-Res Isometric Blueprint Architectural Background -->
+      <div class="framer-projects-hero-bg" aria-hidden="true">
+        <img src="assets/about-hero-bg.png" alt="" width="2880" height="1060" fetchpriority="high" />
+      </div>
+
+      <!-- Hero Title Container -->
+      <div class="framer-projects-hero-content">
+        <h1 class="framer-projects-hero-title">PROJECTS</h1>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 2: PROJECTS SHOWCASE GRID                                   -->
+    <!-- =================================================================== -->
+    <section class="framer-projects-showcase-section" aria-label="Projects Showcase">
+      <div class="framer-projects-showcase-container" id="projectsShowcaseGrid">
+        <!-- Project Card 1: MRO -->
+        <article class="framer-project-item">
+          <div class="framer-project-item__img-wrap">
+            <img src="assets/project-1.png" alt="MRO Project in Uyo, Nigeria" width="1024" height="938" loading="lazy" />
+          </div>
+          <div class="framer-project-item__details">
+            <div class="framer-project-item__info">
+              <h2 class="framer-project-item__title">MRO</h2>
+              <div class="framer-project-item__meta">
+                <span class="framer-project-item__loc">Uyo, Nigeria.</span>
+                <span class="framer-project-item__star" aria-hidden="true">✦</span>
+                <span class="framer-project-item__year">2026</span>
+              </div>
+            </div>
+            <a href="./case-study.html" class="framer-project-item__link" aria-label="View MRO Project">
+              <span>View Project</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project Card 2: Luxury Residential Home -->
+        <article class="framer-project-item">
+          <div class="framer-project-item__img-wrap">
+            <img src="assets/project-2.jpg" alt="Luxury Residential Home in Lagos, Nigeria" width="1048" height="1048" loading="lazy" />
+          </div>
+          <div class="framer-project-item__details">
+            <div class="framer-project-item__info">
+              <h2 class="framer-project-item__title">Luxury Residential Home</h2>
+              <div class="framer-project-item__meta">
+                <span class="framer-project-item__loc">Lagos, Nigeria.</span>
+                <span class="framer-project-item__star" aria-hidden="true">✦</span>
+                <span class="framer-project-item__year">2026</span>
+              </div>
+            </div>
+            <a href="./case-study.html" class="framer-project-item__link" aria-label="View Luxury Residential Home Project">
+              <span>View Project</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 3: PROJECT NUMBERS & STATS SECTION (WITH TWEENING ANIMATION)-->
+    <!-- =================================================================== -->
+    <section class="framer-projects-stats-section" aria-label="Key Numbers and Metrics">
+      <div class="framer-projects-stats-container">
+        <!-- Stat Card 1: 4+ Years of Experience -->
+        <div class="framer-stat-box" data-target="4" data-suffix="+" data-duration="1600">
+          <div class="framer-stat-bg" aria-hidden="true"></div>
+          <div class="framer-stat-content">
+            <div class="framer-stat-number tabular-nums">0</div>
+            <div class="framer-stat-label">Years of Experience</div>
+          </div>
+        </div>
+
+        <!-- Stat Card 2: 1,000+ Keys -->
+        <div class="framer-stat-box" data-target="1000" data-suffix="+" data-format="comma" data-duration="2000">
+          <div class="framer-stat-bg" aria-hidden="true"></div>
+          <div class="framer-stat-content">
+            <div class="framer-stat-number tabular-nums">0</div>
+            <div class="framer-stat-label">Keys</div>
+          </div>
+        </div>
+
+        <!-- Stat Card 3: 4+ Number of Projects -->
+        <div class="framer-stat-box" data-target="4" data-suffix="+" data-duration="1600">
+          <div class="framer-stat-bg" aria-hidden="true"></div>
+          <div class="framer-stat-content">
+            <div class="framer-stat-number tabular-nums">0</div>
+            <div class="framer-stat-label">Number of projects</div>
+          </div>
+        </div>
+
+        <!-- Stat Card 4: 2 Countries -->
+        <div class="framer-stat-box" data-target="2" data-suffix="" data-duration="1400">
+          <div class="framer-stat-bg" aria-hidden="true"></div>
+          <div class="framer-stat-content">
+            <div class="framer-stat-number tabular-nums">0</div>
+            <div class="framer-stat-label">Countries</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- SECTION 4: READY TO FORTIFY YOUR FACILITY                           -->
+    <!-- =================================================================== -->
+    <section class="framer-fortify-section" aria-labelledby="fortifyHeading">
+      <!-- Radial Sunburst Background Rays -->
+      <div class="framer-fortify-bg" aria-hidden="true">
+        <img src="assets/sunburst-rays.jpg" alt="" width="562" height="1000" loading="lazy" />
+      </div>
+
+      <div class="framer-fortify-inner">
+        <!-- 3D Padlock Graphic -->
+        <div class="framer-padlock-stage" aria-hidden="true">
+          <div class="framer-padlock">
+            <!-- Shackle / Handle -->
+            <div class="framer-padlock-handle">
+              <img src="assets/padlock-handle.svg" alt="" width="215" height="210" />
+            </div>
+            <!-- Padlock Body -->
+            <div class="framer-padlock-body"></div>
+            <!-- Combination Pin Digits -->
+            <div class="framer-padlock-pins">
+              <div class="framer-padlock-pin">
+                <span>4</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>0</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy & CTA Container -->
+        <div class="framer-fortify-content">
+          <div class="framer-fortify-text">
+            <h2 id="fortifyHeading" class="framer-fortify-title">Ready to Fortify Your Facility</h2>
+            <p class="framer-fortify-desc">
+              Let&rsquo;s discuss your facility, system requirements &amp; long-term objectives. We will guide you from concept through commissioning
+            </p>
+          </div>
+
+          <div class="framer-fortify-cta-wrap">
+            <a href="./contact" class="framer-btn-primary" role="button">
+              <span>Request Site Survey</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="framer-footer" role="contentinfo">
+    <div class="framer-footer-inner">
+      <!-- Centered Horizontal Logo Mark -->
+      <div class="framer-footer-brand">
+        <a href="./" class="framer-footer-logo-link" aria-label="Resources Tech Home">
+          <img src="assets/footer-logo-cropped.png" alt="Resources Technologies Systems Limited" width="835" height="140" loading="lazy" />
+        </a>
+      </div>
+
+      <!-- Footer Bottom Row: Copyright + Nav Links -->
+      <div class="framer-footer-bottom">
+        <div class="framer-footer-copy">
+          <p>&copy;2026 Resources Tech. System Ltd. All Rights Reserved.</p>
+        </div>
+
+        <nav class="framer-footer-nav" aria-label="Footer navigation">
+          <a href="./" class="framer-footer-link">Home</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./about" class="framer-footer-link is-current">About</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./solutions" class="framer-footer-link">Solutions</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./projects" class="framer-footer-link">Projects</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./contact" class="framer-footer-link">Contact</a>
+          <span class="framer-footer-divider" aria-hidden="true"><img src="assets/footer-divider.svg" alt="" width="3" height="16" /></span>
+          <a href="./admin.html" class="framer-footer-link" style="color: #10b981;">CMS Portal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

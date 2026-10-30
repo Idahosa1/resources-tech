@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Solutions — Resources Technologies Systems Limited: Intelligent security, building automation, life-safety, and operational visibility." />
+  <title>Solutions — Resources Tech. System Ltd</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================================================================== -->
+  <!-- NAVBAR (Framer: 80px, blurred background, border-bottom)              -->
+  <!-- ===================================================================== -->
+  <header class="framer-navbar" role="banner">
+    <div class="framer-navbar__inner">
+      <!-- Logo -->
+      <a href="./" class="framer-logo" aria-label="Resources Tech. System Ltd">
+        <img src="assets/logo.png" alt="Resources Tech Logo" width="48" height="48" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="framer-nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./" class="framer-nav-link">Home</a>
+        <a href="./about" class="framer-nav-link">About</a>
+        <a href="./solutions" class="framer-nav-link is-active" aria-current="page">Solutions</a>
+        <a href="./projects" class="framer-nav-link">Projects</a>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="framer-nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDropdown">
+        <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="8" x2="21" y2="8"></line>
+          <line x1="3" y1="16" x2="21" y2="16"></line>
+        </svg>
+        <svg id="closeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="framer-mobile-dropdown" id="mobileDropdown" role="region" aria-label="Mobile Navigation">
+      <ul class="framer-mobile-list">
+        <li><a href="./" class="framer-nav-link">Home</a></li>
+        <li><a href="./about" class="framer-nav-link">About</a></li>
+        <li><a href="./solutions" class="framer-nav-link is-active" aria-current="page">Solutions</a></li>
+        <li><a href="./projects" class="framer-nav-link">Projects</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT                                                          -->
+  <!-- ===================================================================== -->
+  <main>
+    <!-- =================================================================== -->
+    <!-- SECTION 1: SOLUTIONS HERO SECTION                                   -->
+    <!-- =================================================================== -->
+    <section class="framer-solutions-hero" aria-label="Solutions Header">
+      <!-- High-Res Isometric Blueprint Architectural Background -->
+      <div class="framer-solutions-hero-bg" aria-hidden="true">
+        <img src="assets/about-hero-bg.png" alt="" width="2880" height="1060" fetchpriority="high" />
+      </div>
+
+      <!-- Hero Title Container -->
+      <div class="framer-solutions-hero-content">
+        <h1 class="framer-solutions-hero-title">SOLUTIONS</h1>
+      </div>
+    </section>
+
+
+    <!-- =================================================================== -->
+    <!-- SECTION 2: SOLUTIONS ACCORDION (5 CAPABILITY CARDS)                 -->
+    <!-- =================================================================== -->
+    <section class="framer-solutions-accordion-section" aria-label="Solutions and Capabilities">
+      <div class="framer-solutions-accordion-container">
+
+        <!-- Solution Card 1: Proactive threat prevention & asset shielding -->
+        <article class="framer-solution-card is-open" id="solution-1">
+          <!-- Header Toggle Bar -->
+          <button type="button" 
+                  class="framer-solution-header" 
+                  id="heading-solution-1" 
+                  aria-expanded="true" 
+                  aria-controls="panel-solution-1"
+                  aria-label="Proactive threat prevention & asset shielding">
+            <h2 class="framer-solution-title">Proactive threat prevention & asset shielding</h2>
+            <div class="framer-solution-key-indicator" aria-hidden="true">
+              <img src="assets/key-opened.svg" alt="" class="key-icon key-icon--opened" width="112" height="42" />
+              <img src="assets/key-closed.svg" alt="" class="key-icon key-icon--closed" width="136" height="42" />
+            </div>
+          </button>
+
+          <!-- Expandable Content Panel -->
+          <div class="framer-solution-panel" id="panel-solution-1" role="region" aria-labelledby="heading-solution-1">
+            <div class="framer-solution-panel-inner">
+              <!-- Left: Watermark Graphic (320x320) -->
+              <div class="framer-solution-watermark" aria-hidden="true">
+                <img src="assets/solution-shield.svg" alt="Shield Emblem" width="320" height="320" loading="lazy" />
+              </div>
+
+              <!-- Right: Detailed Content -->
+              <div class="framer-solution-details">
+                <!-- Overview Narrative -->
+                <div class="framer-solution-narrative">
+            <p class="framer-solution-para">Intelligent, real-time perimeter defense. Traditional security setup records incidents after they occur; we engineer intelligent surveillance networks designed to stop breaches before they become real financial losses.</p>
+            <p class="framer-solution-para">We leverage AI-driven analytics, perimeter intrusion detection, and automated threat recognition. Our solutions transform raw camera feeds into actionable threat intelligence, protecting your personnel, high-value assets, and, in effect, your brand reputation.</p>
+                </div>
+
+                <!-- Key Capabilities List -->
+                <div class="framer-solution-capabilities">
+                  <h3 class="framer-solution-capabilities-heading">Our Key Capabilities:</h3>
+                  <ol class="framer-solution-capabilities-list">
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">AI-powered perimeter analytics</strong>: Instant detection of line crossing, loitering, license plate recognition, and unauthorised access attempts.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">High-resiliency perimeter barriers</strong>: Integrated active infrared beams, smart fencing, and thermal imaging for zero-visibility conditions.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Centralised audit trails</strong>: Encrypted video retention with instant event-tagging for seamless legal and corporate compliance.</li>
+                  </ol>
+                </div>
+
+                <!-- Business Impact Statement -->
+                <div class="framer-solution-impact">
+                  <p class="framer-solution-impact-text">
+                    <strong class="framer-solution-impact-lead">The business impact:</strong> This will prevent capital losses, shield your organisation from avoidable liability, and drastically reduce reliance on vulnerable manual guard patrols.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Solution Card 2: Automated environmental & energy control -->
+        <article class="framer-solution-card" id="solution-2">
+          <!-- Header Toggle Bar -->
+          <button type="button" 
+                  class="framer-solution-header" 
+                  id="heading-solution-2" 
+                  aria-expanded="false" 
+                  aria-controls="panel-solution-2"
+                  aria-label="Automated environmental & energy control">
+            <h2 class="framer-solution-title">Automated environmental & energy control</h2>
+            <div class="framer-solution-key-indicator" aria-hidden="true">
+              <img src="assets/key-opened.svg" alt="" class="key-icon key-icon--opened" width="112" height="42" />
+              <img src="assets/key-closed.svg" alt="" class="key-icon key-icon--closed" width="136" height="42" />
+            </div>
+          </button>
+
+          <!-- Expandable Content Panel -->
+          <div class="framer-solution-panel" id="panel-solution-2" role="region" aria-labelledby="heading-solution-2">
+            <div class="framer-solution-panel-inner">
+              <!-- Left: Watermark Graphic (320x320) -->
+              <div class="framer-solution-watermark" aria-hidden="true">
+                <img src="assets/solution-smart-building.svg" alt="Smart Building Emblem" width="320" height="320" loading="lazy" />
+              </div>
+
+              <!-- Right: Detailed Content -->
+              <div class="framer-solution-details">
+                <!-- Overview Narrative -->
+                <div class="framer-solution-narrative">
+            <p class="framer-solution-para">Intelligent Facility Optimisation.</p>
+            <p class="framer-solution-para">An intelligent facility should work for you, not consume your profits. We integrate automated environmental, lighting, and power management systems that transform passive structures into brilliant, self-optimising facilities; synchronising HVAC, occupancy sensors, and power management, we help corporate facilities eradicate utility waste while creating a superior, comfortable environment for staff and their prestigious guests.</p>
+                </div>
+
+                <!-- Key Capabilities List -->
+                <div class="framer-solution-capabilities">
+                  <h3 class="framer-solution-capabilities-heading">Our Key Capabilities:</h3>
+                  <ol class="framer-solution-capabilities-list">
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Integrated Building Management Systems (IBMS):</strong> Centralised scheduling and automated control for HVAC, lighting, and power systems.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Occupancy-based energy optimisation:</strong> Smart sensors that automatically adjust lighting and cooling based on real-time room usage.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Smart access & guest experience automation:</strong> Touchless entry, automated visitor management, and centralised climate presets for executive suites.</li>
+                  </ol>
+                </div>
+
+                <!-- Business Impact Statement -->
+                <div class="framer-solution-impact">
+                  <p class="framer-solution-impact-text">
+                    <strong class="framer-solution-impact-lead">The business impact:</strong> Implementing these cuts out operational expenditures (OPEX) through energy conservation while significantly increasing the market valuation of your real estate assets.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Solution Card 3: Uninterrupted business continuity -->
+        <article class="framer-solution-card" id="solution-3">
+          <!-- Header Toggle Bar -->
+          <button type="button" 
+                  class="framer-solution-header" 
+                  id="heading-solution-3" 
+                  aria-expanded="false" 
+                  aria-controls="panel-solution-3"
+                  aria-label="Uninterrupted business continuity">
+            <h2 class="framer-solution-title">Uninterrupted business continuity</h2>
+            <div class="framer-solution-key-indicator" aria-hidden="true">
+              <img src="assets/key-opened.svg" alt="" class="key-icon key-icon--opened" width="112" height="42" />
+              <img src="assets/key-closed.svg" alt="" class="key-icon key-icon--closed" width="136" height="42" />
+            </div>
+          </button>
+
+          <!-- Expandable Content Panel -->
+          <div class="framer-solution-panel" id="panel-solution-3" role="region" aria-labelledby="heading-solution-3">
+            <div class="framer-solution-panel-inner">
+              <!-- Left: Watermark Graphic (320x320) -->
+              <div class="framer-solution-watermark" aria-hidden="true">
+                <img src="assets/solution-connection.svg" alt="Connection Emblem" width="320" height="320" loading="lazy" />
+              </div>
+
+              <!-- Right: Detailed Content -->
+              <div class="framer-solution-details">
+                <!-- Overview Narrative -->
+                <div class="framer-solution-narrative">
+            <p class="framer-solution-para">Ultra-resilient digital foundations.</p>
+            <p class="framer-solution-para">Statistics show that preventable network downtime is directly tied to revenue loss. Our high-performance, redundant, extra-low-voltage (ELV) digital foundations ensure your enterprise systems remain online, regardless of operational stress or environmental challenges. We build structured cabling and wireless backbones that scale effortlessly with your company’s growth.</p>
+                </div>
+
+                <!-- Key Capabilities List -->
+                <div class="framer-solution-capabilities">
+                  <h3 class="framer-solution-capabilities-heading">Our Key Capabilities:</h3>
+                  <ol class="framer-solution-capabilities-list">
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Structured fibre & copper cabling:</strong> ISO-standardised Cat6A/Cat7 and Fibre Optic infrastructure engineered for gigabit throughput.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">High-density enterprise Wi-Fi & switching:</strong> Seamless, zero-handoff wireless coverage designed for high-concurrency corporate environments.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Server room infrastructure & cable management:</strong> Clean, clear colour-coded rack architecture, patch panels, and organised cable pathways built for quick maintenance.</li>
+                  </ol>
+                </div>
+
+                <!-- Business Impact Statement -->
+                <div class="framer-solution-impact">
+                  <p class="framer-solution-impact-text">
+                    <strong class="framer-solution-impact-lead">The business impact:</strong> We guarantee zero-downtime operations, eliminate communication bottlenecks, and lower long-term IT maintenance costs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Solution Card 4: Critical risk mitigation & life-safety assurance -->
+        <article class="framer-solution-card" id="solution-4">
+          <!-- Header Toggle Bar -->
+          <button type="button" 
+                  class="framer-solution-header" 
+                  id="heading-solution-4" 
+                  aria-expanded="false" 
+                  aria-controls="panel-solution-4"
+                  aria-label="Critical risk mitigation & life-safety assurance">
+            <h2 class="framer-solution-title">Critical risk mitigation & life-safety assurance</h2>
+            <div class="framer-solution-key-indicator" aria-hidden="true">
+              <img src="assets/key-opened.svg" alt="" class="key-icon key-icon--opened" width="112" height="42" />
+              <img src="assets/key-closed.svg" alt="" class="key-icon key-icon--closed" width="136" height="42" />
+            </div>
+          </button>
+
+          <!-- Expandable Content Panel -->
+          <div class="framer-solution-panel" id="panel-solution-4" role="region" aria-labelledby="heading-solution-4">
+            <div class="framer-solution-panel-inner">
+              <!-- Left: Watermark Graphic (320x320) -->
+              <div class="framer-solution-watermark" aria-hidden="true">
+                <img src="assets/solution-love.svg" alt="Life Safety Shield Emblem" width="320" height="320" loading="lazy" />
+              </div>
+
+              <!-- Right: Detailed Content -->
+              <div class="framer-solution-details">
+                <!-- Overview Narrative -->
+                <div class="framer-solution-narrative">
+            <p class="framer-solution-para">Automated early-detection hazard systems.</p>
+            <p class="framer-solution-para">Catastrophic events call for early, flawless intervention before they happen. Our life-safety systems detect thermal anomalies and smoke hazards long before visible flames emerge. These systems are built strictly to meet international safety benchmarks; minimising property damage, securing safe evacuation routes, and protecting your most valuable asset: the human life.</p>
+                </div>
+
+                <!-- Key Capabilities List -->
+                <div class="framer-solution-capabilities">
+                  <h3 class="framer-solution-capabilities-heading">Our Key Capabilities:</h3>
+                  <ol class="framer-solution-capabilities-list">
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Early warning smoke & thermal detection:</strong> High-sensitivity addressable smoke detectors and aspirating smoke detection systems (VESDA) for mission-critical server rooms.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Automated suppression system integration:</strong> Seamless handshakes between fire panels, HVAC shutdown, access control release, and clean-agent gas suppression systems.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Public address & voice evacuation (PA/VA):</strong> Clear, automated voice-guided evacuation systems designed to prevent panic during emergencies.</li>
+                  </ol>
+                </div>
+
+                <!-- Business Impact Statement -->
+                <div class="framer-solution-impact">
+                  <p class="framer-solution-impact-text">
+                    <strong class="framer-solution-impact-lead">The business impact:</strong> We ensure full statutory compliance, safeguard your workforce, and protect critical capital assets from destruction.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Solution Card 5: Total operational visibility -->
+        <article class="framer-solution-card" id="solution-5">
+          <!-- Header Toggle Bar -->
+          <button type="button" 
+                  class="framer-solution-header" 
+                  id="heading-solution-5" 
+                  aria-expanded="false" 
+                  aria-controls="panel-solution-5"
+                  aria-label="Total operational visibility">
+            <h2 class="framer-solution-title">Total operational visibility</h2>
+            <div class="framer-solution-key-indicator" aria-hidden="true">
+              <img src="assets/key-opened.svg" alt="" class="key-icon key-icon--opened" width="112" height="42" />
+              <img src="assets/key-closed.svg" alt="" class="key-icon key-icon--closed" width="136" height="42" />
+            </div>
+          </button>
+
+          <!-- Expandable Content Panel -->
+          <div class="framer-solution-panel" id="panel-solution-5" role="region" aria-labelledby="heading-solution-5">
+            <div class="framer-solution-panel-inner">
+              <!-- Left: Watermark Graphic (320x320) -->
+              <div class="framer-solution-watermark" aria-hidden="true">
+                <img src="assets/solution-settings.svg" alt="Settings Emblem" width="320" height="320" loading="lazy" />
+              </div>
+
+              <!-- Right: Detailed Content -->
+              <div class="framer-solution-details">
+                <!-- Overview Narrative -->
+                <div class="framer-solution-narrative">
+            <p class="framer-solution-para">Centralised management for high-stakes environments.</p>
+            <p class="framer-solution-para">When managing complex corporate infrastructure, delayed information often leads to costly operational missteps. By consolidating contrasting data streams into a unified, user-friendly interface, we create and implement centralised command and control frameworks. We also provide executive leadership and facility management with real-time control over their physical assets, operational workflows, and security posture across a single site or multiple locations.</p>
+                </div>
+
+                <!-- Key Capabilities List -->
+                <div class="framer-solution-capabilities">
+                  <h3 class="framer-solution-capabilities-heading">Our Key Capabilities:</h3>
+                  <ol class="framer-solution-capabilities-list">
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Integrated video & sensor management:</strong> Synchronised CCTV, access logs, and environmental monitoring onto unified video walls and control desks.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Incident escalation workflows:</strong> Automated alerting protocols that immediately direct operator focus to critical events.</li>
+              <li class="framer-solution-capability-item"><strong class="framer-solution-capability-title">Ergonomic control room engineering:</strong> Bespoke console furniture, video wall layout, and thermal management optimised for 24/7 operators’ efficiency.</li>
+                  </ol>
+                </div>
+
+                <!-- Business Impact Statement -->
+                <div class="framer-solution-impact">
+                  <p class="framer-solution-impact-text">
+                    <strong class="framer-solution-impact-lead">The business impact:</strong> This architecture setup eliminates operational blind spots, drastically reducing emergency response times, and empowers management to make decisions based on actual data.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<!-- SECTION 4: READY TO FORTIFY YOUR FACILITY                           -->
+    <!-- =================================================================== -->
+    <section class="framer-fortify-section" aria-labelledby="fortifyHeading">
+      <!-- Radial Sunburst Background Rays -->
+      <div class="framer-fortify-bg" aria-hidden="true">
+        <img src="assets/sunburst-rays.jpg" alt="" width="562" height="1000" loading="lazy" />
+      </div>
+
+      <div class="framer-fortify-inner">
+        <!-- 3D Padlock Graphic -->
+        <div class="framer-padlock-stage" aria-hidden="true">
+          <div class="framer-padlock">
+            <!-- Shackle / Handle -->
+            <div class="framer-padlock-handle">
+              <img src="assets/padlock-handle.svg" alt="" width="215" height="210" />
+            </div>
+            <!-- Padlock Body -->
+            <div class="framer-padlock-body"></div>
+            <!-- Combination Pin Digits -->
+            <div class="framer-padlock-pins">
+              <div class="framer-padlock-pin">
+                <span>4</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>0</span>
+              </div>
+              <div class="framer-padlock-pin">
+                <span>_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy & CTA Container -->
+        <div class="framer-fortify-content">
+          <div class="framer-fortify-text">
+            <h2 id="fortifyHeading" class="framer-fortify-title">Ready to Fortify Your Facility</h2>
+            <p class="framer-fortify-desc">
+              Let&rsquo;s discuss your facility, system requirements &amp; long-term objectives. We will guide you from concept through commissioning
+            </p>
+          </div>
+
+          <div class="framer-fortify-cta-wrap">
+            <a href="./contact" class="framer-btn-primary" role="button">
+              <span>Request Site Survey</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="framer-footer" role="contentinfo">
+    <div class="framer-footer-inner">
+      <!-- Centered Horizontal Logo Mark -->
+      <div class="framer-footer-brand">
+        <a href="./" class="framer-footer-logo-link" aria-label="Resources Tech Home">
+          <img src="assets/footer-logo-cropped.png" alt="Resources Technologies Systems Limited" width="835" height="140" loading="lazy" />
+        </a>
+      </div>
+
+      <!-- Footer Bottom Row: Copyright + Nav Links -->
+      <div class="framer-footer-bottom">
+        <div class="framer-footer-copy">
+          <p>&copy;2026 Resources Tech. System Ltd. All Rights Reserved.</p>
+        </div>
+
+        <nav class="framer-footer-nav" aria-label="Footer navigation">
+          <a href="./" class="framer-footer-link">Home</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./about" class="framer-footer-link is-current">About</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./solutions" class="framer-footer-link">Solutions</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./projects" class="framer-footer-link">Projects</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./contact" class="framer-footer-link">Contact</a>
+          <span class="framer-footer-divider" aria-hidden="true"><img src="assets/footer-divider.svg" alt="" width="3" height="16" /></span>
+          <a href="./admin.html" class="framer-footer-link" style="color: #10b981;">CMS Portal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

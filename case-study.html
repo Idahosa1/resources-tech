@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="MRO Case Study — Resources Technologies Systems Limited. ELV systems, infrastructure engineering, and long-term serviceability." />
+  <title>MRO — Case Study | Resources Tech. System Ltd</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================================================================== -->
+  <!-- NAVBAR (Framer: 80px, blurred background, border-bottom)              -->
+  <!-- ===================================================================== -->
+  <header class="framer-navbar" role="banner">
+    <div class="framer-navbar__inner">
+      <!-- Logo -->
+      <a href="./" class="framer-logo" aria-label="Resources Tech. System Ltd">
+        <img src="assets/logo.png" alt="Resources Tech Logo" width="48" height="48" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="framer-nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./" class="framer-nav-link">Home</a>
+        <a href="./about" class="framer-nav-link">About</a>
+        <a href="./solutions" class="framer-nav-link">Solutions</a>
+        <a href="./projects" class="framer-nav-link is-active" aria-current="page">Projects</a>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="framer-nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDropdown">
+        <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="8" x2="21" y2="8"></line>
+          <line x1="3" y1="16" x2="21" y2="16"></line>
+        </svg>
+        <svg id="closeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="framer-mobile-dropdown" id="mobileDropdown" role="region" aria-label="Mobile Navigation">
+      <ul class="framer-mobile-list">
+        <li><a href="./" class="framer-nav-link">Home</a></li>
+        <li><a href="./about" class="framer-nav-link">About</a></li>
+        <li><a href="./solutions" class="framer-nav-link">Solutions</a></li>
+        <li><a href="./projects" class="framer-nav-link is-active" aria-current="page">Projects</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT                                                          -->
+  <!-- ===================================================================== -->
+  <main>
+    <!-- =================================================================== -->
+    <!-- SECTION 1: CASE STUDY HERO CARD                                     -->
+    <!-- =================================================================== -->
+    <section class="framer-case-study-hero-section" aria-label="Case Study Header">
+      <div class="framer-case-study-hero-container">
+        <!-- Large Featured Image Card with Gradient/Vignette Overlay -->
+        <div class="framer-case-study-hero-card">
+          <!-- Full-bleed background image -->
+          <img src="assets/project-1.png" alt="MRO Aviation Hangar Facility" class="framer-case-study-hero-img" id="csHeroImg" width="1024" height="938" fetchpriority="high" />
+
+          <!-- Subtle bottom shadow vignette for contrast -->
+          <div class="framer-case-study-hero-blur" aria-hidden="true"></div>
+
+          <!-- Bottom Text Overlay -->
+          <div class="framer-case-study-hero-meta">
+            <h1 class="framer-case-study-hero-title" id="csHeroTitle">MRO</h1>
+            <div class="framer-case-study-hero-subtitle">
+              <span class="framer-case-study-type" id="csHeroType">Project type</span>
+              <span class="framer-case-study-dot" aria-hidden="true">✦</span>
+              <span class="framer-case-study-location" id="csHeroLocation">Location</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 2: CASE STUDY EDITORIAL CONTENT & CMS FIELDS                -->
+    <!-- =================================================================== -->
+    <section class="framer-case-study-content-section" aria-label="Case Study Narrative">
+      <div class="framer-case-study-content-container">
+        
+        <!-- Block 1: Project Overview -->
+        <article class="framer-case-study-block">
+          <div class="framer-case-study-heading-wrap">
+            <svg class="framer-case-study-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            </svg>
+            <h2 class="framer-case-study-heading">Project Overview</h2>
+          </div>
+          <div class="framer-case-study-text-wrap" id="csOverviewWrap">
+            <p class="framer-case-study-p">
+              Resource Technologies Systems Ltd was engaged to design and implement integrated ELV systems for a private residential development completed in 2024.
+            </p>
+            <p class="framer-case-study-p">
+              The project emphasized structured infrastructure, clean system separation, and long-term serviceability rather than short-term installation speed
+            </p>
+          </div>
+        </article>
+
+        <!-- Block 2: Systems Implemented -->
+        <article class="framer-case-study-block">
+          <div class="framer-case-study-heading-wrap">
+            <svg class="framer-case-study-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+            <h2 class="framer-case-study-heading">Systems Implemented</h2>
+          </div>
+          <div class="framer-case-study-text-wrap">
+            <ul class="framer-case-study-list" id="csSystemsList">
+              <li>Structured Cabling Infrastructure</li>
+              <li>CCTV Surveillance System</li>
+              <li>Access Control Provisions</li>
+              <li>Fire Detection Provisions</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Block 3: Engineering Approach -->
+        <article class="framer-case-study-block">
+          <div class="framer-case-study-heading-wrap">
+            <svg class="framer-case-study-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <h2 class="framer-case-study-heading">Engineering Approach</h2>
+          </div>
+          <div class="framer-case-study-text-wrap">
+            <ol class="framer-case-study-num-list" id="csApproachList">
+              <li>Review of architectural layouts and coordination with other trades</li>
+              <li>Standards-based cable routing and containment strategy</li>
+              <li>Proper zoning and device positioning for safety and coverage</li>
+              <li>Clear labeling, documentation, and handover readiness</li>
+            </ol>
+          </div>
+        </article>
+
+        <!-- Block 4: Delivery & Outcome -->
+        <article class="framer-case-study-block">
+          <div class="framer-case-study-heading-wrap">
+            <svg class="framer-case-study-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            <h2 class="framer-case-study-heading">Delivery &amp; Outcome</h2>
+          </div>
+          <div class="framer-case-study-text-wrap" id="csOutcomeWrap">
+            <p class="framer-case-study-p">
+              The project was delivered in line with design intent and functional requirements. All systems were tested and verified, with infrastructure designed to accommodate future expansion or system upgrades without major rework.
+            </p>
+          </div>
+        </article>
+
+        <!-- Block 5: Project Installation Ticker (Auto-scrolling with 50% speed on hover) -->
+        <div class="framer-case-study-ticker" aria-label="Project Installation Gallery">
+          <div class="framer-case-study-ticker-track" id="caseStudyTickerTrack">
+            <!-- Group 1 -->
+            <div class="framer-case-study-ticker-group">
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-1.png" alt="Server and surveillance cameras" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-2.png" alt="Cable containment and routing" width="1448" height="1086" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-3.png" alt="Structured patch panel termination" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-4.png" alt="Site architectural engineering" width="1195" height="823" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-5.png" alt="Integrated server rack systems" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-6.png" alt="High density cable distribution" width="1086" height="1448" loading="lazy" />
+              </div>
+            </div>
+            <!-- Group 2 (Exact duplicate for seamless infinite loop) -->
+            <div class="framer-case-study-ticker-group" aria-hidden="true">
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-1.png" alt="" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-2.png" alt="" width="1448" height="1086" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-3.png" alt="" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-4.png" alt="" width="1195" height="823" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-5.png" alt="" width="1086" height="1448" loading="lazy" />
+              </div>
+              <div class="framer-case-study-gallery-item">
+                <img src="assets/gallery-6.png" alt="" width="1086" height="1448" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 6: Why This Project Matters -->
+        <article class="framer-case-study-block">
+          <div class="framer-case-study-heading-wrap">
+            <svg class="framer-case-study-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <h2 class="framer-case-study-heading">Why This Project Matters</h2>
+          </div>
+          <div class="framer-case-study-text-wrap" id="csWhyMattersWrap">
+            <p class="framer-case-study-p">
+              This project reflects our core philosophy: engineering clarity, standards compliance, and long-term system performance over volume-based execution.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+<!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="framer-footer" role="contentinfo">
+    <div class="framer-footer-inner">
+      <!-- Centered Horizontal Logo Mark -->
+      <div class="framer-footer-brand">
+        <a href="./" class="framer-footer-logo-link" aria-label="Resources Tech Home">
+          <img src="assets/footer-logo-cropped.png" alt="Resources Technologies Systems Limited" width="835" height="140" loading="lazy" />
+        </a>
+      </div>
+
+      <!-- Footer Bottom Row: Copyright + Nav Links -->
+      <div class="framer-footer-bottom">
+        <div class="framer-footer-copy">
+          <p>&copy;2026 Resources Tech. System Ltd. All Rights Reserved.</p>
+        </div>
+
+        <nav class="framer-footer-nav" aria-label="Footer navigation">
+          <a href="./" class="framer-footer-link">Home</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./about" class="framer-footer-link is-current">About</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./solutions" class="framer-footer-link">Solutions</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./projects" class="framer-footer-link">Projects</a>
+          <span class="framer-footer-divider" aria-hidden="true">
+            <img src="assets/footer-divider.svg" alt="" width="3" height="16" />
+          </span>
+
+          <a href="./contact" class="framer-footer-link">Contact</a>
+          <span class="framer-footer-divider" aria-hidden="true"><img src="assets/footer-divider.svg" alt="" width="3" height="16" /></span>
+          <a href="./admin.html" class="framer-footer-link" style="color: #10b981;">CMS Portal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

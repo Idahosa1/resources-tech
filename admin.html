@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Resources Tech — Project CMS Dashboard</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050505;
+      --surface-1: #0e0e0e;
+      --surface-2: #161616;
+      --surface-3: #222222;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-focus: rgba(255, 255, 255, 0.35);
+      --text: #ffffff;
+      --text-muted: #8e8e8e;
+      --accent: #ffffff;
+      --danger: #ef4444;
+      --success: #10b981;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Admin Top Header */
+    .admin-header {
+      background: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 16px 36px;
+    }
+
+    .admin-header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .admin-brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    .admin-brand-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .admin-badge {
+      background: var(--surface-3);
+      color: #dedede;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 140ms ease-out, background 140ms ease-out, border-color 140ms ease-out;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #040404;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #e6e6e6;
+    }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: #ffffff;
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-sm {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.25);
+    }
+
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.22);
+    }
+
+    /* Main Container */
+    .admin-main {
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 36px 80px;
+      flex: 1;
+    }
+
+    /* Stats Ribbon */
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .admin-stat-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .admin-stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .admin-stat-val {
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Section Header */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* Project Cards Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 200ms ease-out, transform 200ms ease-out;
+    }
+
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .project-card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .project-card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 300ms ease-out;
+    }
+
+    .project-card:hover .project-card-thumb {
+      transform: scale(1.03);
+    }
+
+    .project-card-slug-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(4, 4, 4, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-family: monospace;
+      color: #dedede;
+    }
+
+    .project-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 16px;
+    }
+
+    .project-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .project-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .project-card-year {
+      font-size: 12px;
+      font-weight: 600;
+      color: #a3a3a3;
+      background: var(--surface-2);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .project-card-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-card-desc {
+      font-size: 14px;
+      color: #cccccc;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .project-card-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-chip {
+      background: var(--surface-2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #b0b0b0;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .project-card-actions {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       MODAL SHEET & SCROLL ARCHITECTURE (FIXED)
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease-out;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      max-width: 880px;
+      width: 100%;
+      height: 88vh;
+      max-height: 850px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+      transform: scale(0.96);
+      transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .modal-overlay.is-active .modal-card {
+      transform: scale(1);
+    }
+
+    /* Crucial: Form is flex container with overflow hidden */
+    #projectForm {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      background: #0c0c0c;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 150ms ease-out, color 150ms ease-out;
+    }
+
+    .modal-close:hover {
+      color: #ffffff;
+      background: var(--surface-3);
+    }
+
+    /* Modal Body Scrolls Comfortably */
+    .modal-body {
+      padding: 28px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+    .modal-body::-webkit-scrollbar-track {
+      background: #0f0f0f;
+    }
+    .modal-body::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 4px;
+    }
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: #3a3a3a;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #dedede;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 150ms ease-out, background 150ms ease-out;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--border-focus);
+      background: #191919;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       MEDIA UPLOAD PANELS (HERO & TICKER GALLERY)
+       ========================================================================== */
+    .media-upload-card {
+      background: #131313;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Hero Image Preview Box */
+    .hero-preview-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: #090909;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      transition: border-color 150ms ease-out;
+    }
+
+    .hero-preview-box.is-dragover {
+      border-color: #ffffff;
+      background: #161616;
+    }
+
+    .hero-thumb {
+      width: 140px;
+      height: 95px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #1c1c1c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .hero-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Ticker Gallery Visual Grid */
+    .gallery-grid-manager {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .gallery-thumb-item {
+      position: relative;
+      height: 130px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0b0b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-thumb-order {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .gallery-thumb-remove {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(239, 68, 68, 0.85);
+      border: none;
+      color: #ffffff;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: transform 120ms ease-out, background 120ms ease-out;
+    }
+
+    .gallery-thumb-remove:hover {
+      background: #ef4444;
+      transform: scale(1.1);
+    }
+
+    /* Add Image Dropzone Button */
+    .gallery-dropzone {
+      height: 130px;
+      border-radius: 8px;
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: #dedede;
+      padding: 10px;
+      text-align: center;
+      transition: border-color 150ms ease-out, background 150ms ease-out, transform 120ms ease-out;
+    }
+
+    .gallery-dropzone:hover,
+    .gallery-dropzone.is-dragover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .gallery-dropzone svg {
+      color: var(--text-muted);
+    }
+
+    .gallery-dropzone span {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .modal-footer {
+      padding: 18px 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #0a0a0a;
+      flex-shrink: 0;
+    }
+
+    /* Toast Notification (Sonner style) */
+    .toast-shelf {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: #1c1c1c;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      transform: translateY(16px);
+      opacity: 0;
+      transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), opacity 220ms ease-out;
+      pointer-events: auto;
+    }
+
+    .toast.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--success);
+      flex-shrink: 0;
+    }
+
+    .toast-msg {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .admin-header {
+        padding: 14px 20px;
+      }
+      .admin-main {
+        padding: 24px 20px 60px;
+      }
+      .admin-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .hero-preview-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-thumb {
+        width: 100%;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <a href="./projects.html" class="admin-brand" title="View Projects on Website">
+        <img src="assets/logo.png" alt="Resources Tech Logo" />
+        <div class="admin-brand-title">
+          <span>Resources Technologies</span>
+          <span class="admin-badge">CMS Portal</span>
+        </div>
+      </a>
+      <div class="admin-nav-actions">
+        <a href="./projects.html" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          View Public Site
+        </a>
+        <button class="btn btn-primary" id="btnNewProject">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Add New Project
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    
+    <!-- Stats Overview -->
+    <section class="admin-stats-grid">
+      <div class="admin-stat-card">
+        <span class="admin-stat-label">Published Projects</span>
+        <span class="admin-stat-val" id="statTotalProjects">0</span>
+      </div>
+      <div class="admin-stat-card">
+        <span class="admin-stat-label">Active Locations</span>
+        <span class="admin-stat-val" id="statLocations">0</span>
+      </div>
+      <div class="admin-stat-card">
+        <span class="admin-stat-label">Systems Managed</span>
+        <span class="admin-stat-val" id="statSystems">0</span>
+      </div>
+      <div class="admin-stat-card">
+        <span class="admin-stat-label">Database Store</span>
+        <span class="admin-stat-val" style="font-size: 18px; line-height: 38px; color: #10b981;">● Connected</span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <div class="section-head">
+      <h2>Managed Projects &amp; Case Studies</h2>
+      <span style="font-size: 13px; color: var(--text-muted);">Database: <code style="color: #dedede;">data/projects.json</code></span>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="project-grid" id="projectsContainer">
+      <!-- Dynamically populated -->
+    </div>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- MODAL PROJECT EDITOR (SCROLLABLE WITH DESKTOP IMAGE UPLOADS)             -->
+  <!-- ======================================================================= -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Add New Project</h3>
+        <button class="modal-close" id="btnModalClose" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      
+      <form id="projectForm">
+        <input type="hidden" id="formProjectId" />
+
+        <!-- SCROLLABLE BODY -->
+        <div class="modal-body">
+          
+          <!-- Section A: Identity & Classification -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="formTitle">Project Title *</label>
+              <input type="text" id="formTitle" class="form-input" placeholder="e.g. MRO, Luxury Residential Home" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="formSlug">URL Slug (Identifier) *</label>
+              <input type="text" id="formSlug" class="form-input" placeholder="e.g. mro, luxury-residential-home" required />
+              <span class="form-hint">Path: <code>case-study.html?slug={slug}</code></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="formType">Project Type *</label>
+              <input type="text" id="formType" class="form-input" placeholder="e.g. Aviation Infrastructure, Private Residential" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="formLocation">Location *</label>
+              <input type="text" id="formLocation" class="form-input" placeholder="e.g. Uyo, Nigeria" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="formYear">Year *</label>
+              <input type="text" id="formYear" class="form-input" placeholder="e.g. 2026" required />
+            </div>
+            <div></div>
+          </div>
+
+          <!-- Section B: 1. HERO IMAGE (DESKTOP UPLOAD + PREVIEW) -->
+          <div class="form-group">
+            <label class="form-label">
+              <span>1. Hero Featured Image (Top Card) *</span>
+            </label>
+            <div class="media-upload-card">
+              <div class="hero-preview-box" id="heroDropZone">
+                <img src="assets/project-1.png" alt="Hero Preview" class="hero-thumb" id="heroPreviewImg" onerror="this.src='assets/project-1.png'" />
+                <div class="hero-controls">
+                  <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <input type="file" id="heroFileInput" accept="image/*" style="display: none;" />
+                    <button type="button" class="btn btn-secondary btn-sm" id="btnBrowseHero">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      Choose Image from Desktop
+                    </button>
+                    <span style="font-size: 12px; color: var(--text-muted);">or drag &amp; drop an image here</span>
+                  </div>
+                  <input type="text" id="formHeroImage" class="form-input" placeholder="assets/project-1.png" style="font-size: 12px; padding: 7px 10px;" required />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section C: 2. TICKER IMAGES (DESKTOP MULTI-UPLOAD + GALLERY MANAGER) -->
+          <div class="form-group">
+            <label class="form-label">
+              <span>2. Ticker Installation Gallery (Auto-Scrolling Showcase)</span>
+            </label>
+            <div class="media-upload-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                <span class="form-hint">Images will auto-scroll horizontally at the bottom of the case study.</span>
+                <input type="file" id="galleryFileInput" accept="image/*" multiple style="display: none;" />
+                <button type="button" class="btn btn-secondary btn-sm" id="btnBrowseGallery">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  + Add Images from Desktop
+                </button>
+              </div>
+
+              <!-- Interactive Visual Ticker Images Grid -->
+              <div class="gallery-grid-manager" id="galleryGridManager">
+                <!-- Dynamically populated with thumbnails & remove buttons -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Section D: Editorial Narrative Blocks -->
+          <div class="form-group">
+            <label class="form-label" for="formOverview">Project Overview (One paragraph per line)</label>
+            <textarea id="formOverview" class="form-textarea" rows="3" placeholder="Resource Technologies Systems Ltd was engaged to design..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formSystems">Systems Implemented (One system per line)</label>
+            <textarea id="formSystems" class="form-textarea" rows="4" placeholder="Structured Cabling Infrastructure&#10;CCTV Surveillance System&#10;Access Control Provisions&#10;Fire Detection Provisions"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formApproach">Engineering Approach (One numbered step per line)</label>
+            <textarea id="formApproach" class="form-textarea" rows="4" placeholder="Review of architectural layouts and coordination with other trades&#10;Standards-based cable routing and containment strategy&#10;Proper zoning and device positioning for safety and coverage&#10;Clear labeling, documentation, and handover readiness"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formOutcome">Delivery &amp; Outcome</label>
+            <textarea id="formOutcome" class="form-textarea" rows="2" placeholder="The project was delivered in line with design intent and functional requirements..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formWhyMatters">Why This Project Matters</label>
+            <textarea id="formWhyMatters" class="form-textarea" rows="2" placeholder="This project reflects our core philosophy..."></textarea>
+          </div>
+
+        </div>
+
+        <!-- FIXED FOOTER -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnModalCancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btnSaveProject">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Shelf -->
+  <div class="toast-shelf" id="toastShelf" aria-live="polite"></div>
+
+  <script>
+    // State
+    let projectsData = [];
+    let isEditing = false;
+    let currentEditSlug = null;
+    let currentGalleryList = []; // Array of gallery image URLs
+
+    // Elements
+    const projectsContainer = document.getElementById('projectsContainer');
+    const projectModal = document.getElementById('projectModal');
+    const projectForm = document.getElementById('projectForm');
+    const btnNewProject = document.getElementById('btnNewProject');
+    const btnModalClose = document.getElementById('btnModalClose');
+    const btnModalCancel = document.getElementById('btnModalCancel');
+    const modalTitle = document.getElementById('modalTitle');
+    const formTitle = document.getElementById('formTitle');
+    const formSlug = document.getElementById('formSlug');
+    const toastShelf = document.getElementById('toastShelf');
+
+    // Hero Upload Elements
+    const heroFileInput = document.getElementById('heroFileInput');
+    const btnBrowseHero = document.getElementById('btnBrowseHero');
+    const heroPreviewImg = document.getElementById('heroPreviewImg');
+    const formHeroImage = document.getElementById('formHeroImage');
+    const heroDropZone = document.getElementById('heroDropZone');
+
+    // Gallery Upload Elements
+    const galleryFileInput = document.getElementById('galleryFileInput');
+    const btnBrowseGallery = document.getElementById('btnBrowseGallery');
+    const galleryGridManager = document.getElementById('galleryGridManager');
+
+    // Auto-generate slug as user types title
+    formTitle.addEventListener('input', () => {
+      if (!isEditing) {
+        formSlug.value = formTitle.value
+          .toLowerCase()
+          .trim()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/[\s_-]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+      }
+    });
+
+    // Update hero preview when text changes
+    formHeroImage.addEventListener('input', () => {
+      heroPreviewImg.src = formHeroImage.value.trim() || 'assets/project-1.png';
+    });
+
+    // Toast helper
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `
+        <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span class="toast-msg">${message}</span>
+      `;
+      toastShelf.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add('is-visible'));
+      setTimeout(() => {
+        toast.classList.remove('is-visible');
+        setTimeout(() => toast.remove(), 250);
+      }, 3500);
+    }
+
+    // =========================================================================
+    // DESKTOP FILE UPLOAD HELPERS
+    // =========================================================================
+    function readFileAsBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function uploadDesktopFile(file) {
+      const base64Data = await readFileAsBase64(file);
+      try {
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            filename: file.name,
+            data: base64Data
+          })
+        });
+        if (res.ok) {
+          const json = await res.json();
+          return json.url;
+        }
+      } catch (err) {
+        console.warn('Server upload failed, using data url fallback', err);
+      }
+      // Fallback to direct base64 data URL if API unavailable
+      return base64Data;
+    }
+
+    // Hero Desktop Upload Handlers
+    btnBrowseHero.addEventListener('click', () => heroFileInput.click());
+
+    heroFileInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      showToast('Uploading hero image...');
+      const url = await uploadDesktopFile(file);
+      formHeroImage.value = url;
+      heroPreviewImg.src = url;
+      showToast('Hero image uploaded!');
+      heroFileInput.value = '';
+    });
+
+    // Hero Drag & Drop
+    heroDropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      heroDropZone.classList.add('is-dragover');
+    });
+    heroDropZone.addEventListener('dragleave', () => {
+      heroDropZone.classList.remove('is-dragover');
+    });
+    heroDropZone.addEventListener('drop', async (e) => {
+      e.preventDefault();
+      heroDropZone.classList.remove('is-dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        const file = e.dataTransfer.files[0];
+        showToast('Uploading hero image...');
+        const url = await uploadDesktopFile(file);
+        formHeroImage.value = url;
+        heroPreviewImg.src = url;
+        showToast('Hero image uploaded!');
+      }
+    });
+
+    // Ticker Gallery Desktop Upload Handlers
+    btnBrowseGallery.addEventListener('click', () => galleryFileInput.click());
+
+    galleryFileInput.addEventListener('change', async (e) => {
+      const files = Array.from(e.target.files);
+      if (!files.length) return;
+      showToast(`Uploading ${files.length} ticker image(s)...`);
+
+      for (const file of files) {
+        const url = await uploadDesktopFile(file);
+        currentGalleryList.push(url);
+      }
+
+      renderGalleryManager();
+      showToast(`${files.length} image(s) added to ticker!`);
+      galleryFileInput.value = '';
+    });
+
+    function renderGalleryManager() {
+      if (!currentGalleryList.length) {
+        galleryGridManager.innerHTML = `
+          <div class="gallery-dropzone" style="grid-column: 1 / -1;" id="galleryDropZone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <span>Click "+ Add Images from Desktop" or drag photos here to populate the ticker</span>
+          </div>
+        `;
+      } else {
+        const itemsHtml = currentGalleryList.map((url, idx) => `
+          <div class="gallery-thumb-item">
+            <img src="${url}" alt="Ticker Photo ${idx + 1}" onerror="this.src='assets/gallery-1.png'" />
+            <span class="gallery-thumb-order">#${idx + 1}</span>
+            <button type="button" class="gallery-thumb-remove" title="Remove image" onclick="removeGalleryImage(${idx})">✕</button>
+          </div>
+        `).join('');
+
+        const dropzoneHtml = `
+          <div class="gallery-dropzone" id="galleryDropZone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>+ Add More</span>
+          </div>
+        `;
+
+        galleryGridManager.innerHTML = itemsHtml + dropzoneHtml;
+      }
+
+      // Re-attach dropzone click & drag
+      const dropzone = document.getElementById('galleryDropZone');
+      if (dropzone) {
+        dropzone.addEventListener('click', () => galleryFileInput.click());
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.classList.add('is-dragover');
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.classList.remove('is-dragover');
+        });
+        dropzone.addEventListener('drop', async (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('is-dragover');
+          if (e.dataTransfer.files && e.dataTransfer.files.length) {
+            const files = Array.from(e.dataTransfer.files);
+            showToast(`Uploading ${files.length} ticker image(s)...`);
+            for (const file of files) {
+              const url = await uploadDesktopFile(file);
+              currentGalleryList.push(url);
+            }
+            renderGalleryManager();
+            showToast(`${files.length} image(s) added!`);
+          }
+        });
+      }
+    }
+
+    function removeGalleryImage(index) {
+      currentGalleryList.splice(index, 1);
+      renderGalleryManager();
+      showToast('Image removed from ticker');
+    }
+
+    // =========================================================================
+    // CRUD OPERATIONS
+    // =========================================================================
+    async function loadProjects() {
+      try {
+        const res = await fetch('/api/projects');
+        if (res.ok) {
+          projectsData = await res.json();
+        } else {
+          const staticRes = await fetch('data/projects.json');
+          projectsData = await staticRes.json();
+        }
+      } catch (err) {
+        try {
+          const staticRes = await fetch('data/projects.json');
+          projectsData = await staticRes.json();
+        } catch (e) {
+          projectsData = JSON.parse(localStorage.getItem('resources_tech_projects') || '[]');
+        }
+      }
+      renderProjects();
+      renderStats();
+    }
+
+    function renderStats() {
+      document.getElementById('statTotalProjects').textContent = projectsData.length;
+      const locations = new Set(projectsData.map(p => p.location).filter(Boolean));
+      document.getElementById('statLocations').textContent = locations.size;
+      const totalSystems = projectsData.reduce((acc, p) => acc + (Array.isArray(p.systems) ? p.systems.length : 0), 0);
+      document.getElementById('statSystems').textContent = totalSystems;
+    }
+
+    function renderProjects() {
+      if (!projectsData || projectsData.length === 0) {
+        projectsContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--surface-1); border: 1px dashed var(--border); border-radius: var(--radius-lg);">
+            <p style="font-size: 16px; margin-bottom: 12px;">No projects registered in the database yet.</p>
+            <button class="btn btn-primary" onclick="openNewModal()">Create Your First Project</button>
+          </div>
+        `;
+        return;
+      }
+
+      projectsContainer.innerHTML = projectsData.map(p => {
+        const systemsCount = Array.isArray(p.systems) ? p.systems.length : 0;
+        const galleryCount = Array.isArray(p.gallery) ? p.gallery.length : 0;
+        const overviewText = Array.isArray(p.overview) ? p.overview.join(' ') : (p.overview || '');
+        const heroImg = p.heroImage || 'assets/project-1.png';
+
+        return `
+          <div class="project-card">
+            <div class="project-card-thumb-wrap">
+              <img src="${heroImg}" alt="${p.title}" class="project-card-thumb" onerror="this.src='assets/project-1.png'" />
+              <div class="project-card-slug-pill">${p.slug}</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta">
+                <h3 class="project-card-title">${p.title}</h3>
+                <span class="project-card-year">${p.year || '2026'}</span>
+              </div>
+              <div class="project-card-sub">
+                <span>${p.type || 'Infrastructure'}</span>
+                <span>✦</span>
+                <span>${p.location || 'Nigeria'}</span>
+              </div>
+              <p class="project-card-desc">${overviewText}</p>
+              <div class="project-card-chips">
+                <span class="project-chip">${systemsCount} Systems</span>
+                <span class="project-chip">${galleryCount} Ticker Photos</span>
+              </div>
+              <div class="project-card-actions">
+                <a href="./case-study.html?slug=${p.slug}" target="_blank" class="btn btn-secondary btn-sm">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  Preview
+                </a>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" onclick="openEditModal('${p.slug}')">Edit</button>
+                  <button class="btn btn-danger btn-sm" onclick="deleteProject('${p.slug}')">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Modal Helpers
+    function openNewModal() {
+      isEditing = false;
+      currentEditSlug = null;
+      modalTitle.textContent = 'Add New Project';
+      projectForm.reset();
+      document.getElementById('formProjectId').value = '';
+      formHeroImage.value = 'assets/project-1.png';
+      heroPreviewImg.src = 'assets/project-1.png';
+      currentGalleryList = [
+        'assets/gallery-1.png',
+        'assets/gallery-2.png',
+        'assets/gallery-3.png',
+        'assets/gallery-4.png'
+      ];
+      renderGalleryManager();
+      projectModal.classList.add('is-active');
+      projectModal.setAttribute('aria-hidden', 'false');
+      formTitle.focus();
+    }
+
+    function openEditModal(slug) {
+      const p = projectsData.find(item => item.slug === slug);
+      if (!p) return;
+
+      isEditing = true;
+      currentEditSlug = slug;
+      modalTitle.textContent = `Edit: ${p.title}`;
+      
+      document.getElementById('formProjectId').value = p.id || '';
+      document.getElementById('formTitle').value = p.title || '';
+      document.getElementById('formSlug').value = p.slug || '';
+      document.getElementById('formType').value = p.type || '';
+      document.getElementById('formLocation').value = p.location || '';
+      document.getElementById('formYear').value = p.year || '';
+      
+      // Hero Image
+      formHeroImage.value = p.heroImage || 'assets/project-1.png';
+      heroPreviewImg.src = p.heroImage || 'assets/project-1.png';
+      
+      // Gallery Ticker Images
+      if (Array.isArray(p.gallery)) {
+        currentGalleryList = [...p.gallery];
+      } else if (typeof p.gallery === 'string') {
+        currentGalleryList = p.gallery.split(',').map(s => s.trim()).filter(Boolean);
+      } else {
+        currentGalleryList = [];
+      }
+      renderGalleryManager();
+
+      document.getElementById('formOverview').value = Array.isArray(p.overview) ? p.overview.join('\n\n') : (p.overview || '');
+      document.getElementById('formSystems').value = Array.isArray(p.systems) ? p.systems.join('\n') : (p.systems || '');
+      document.getElementById('formApproach').value = Array.isArray(p.approach) ? p.approach.join('\n') : (p.approach || '');
+      document.getElementById('formOutcome').value = p.outcome || '';
+      document.getElementById('formWhyMatters').value = p.whyMatters || '';
+
+      projectModal.classList.add('is-active');
+      projectModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      projectModal.classList.remove('is-active');
+      projectModal.setAttribute('aria-hidden', 'true');
+    }
+
+    btnNewProject.addEventListener('click', openNewModal);
+    btnModalClose.addEventListener('click', closeModal);
+    btnModalCancel.addEventListener('click', closeModal);
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeModal();
+    });
+
+    // Form Submission
+    projectForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const payload = {
+        id: document.getElementById('formProjectId').value || undefined,
+        title: document.getElementById('formTitle').value.trim(),
+        slug: document.getElementById('formSlug').value.trim(),
+        type: document.getElementById('formType').value.trim(),
+        location: document.getElementById('formLocation').value.trim(),
+        year: document.getElementById('formYear').value.trim(),
+        heroImage: document.getElementById('formHeroImage').value.trim(),
+        gallery: currentGalleryList,
+        overview: document.getElementById('formOverview').value,
+        systems: document.getElementById('formSystems').value,
+        approach: document.getElementById('formApproach').value,
+        outcome: document.getElementById('formOutcome').value.trim(),
+        whyMatters: document.getElementById('formWhyMatters').value.trim()
+      };
+
+      try {
+        let res;
+        if (isEditing && currentEditSlug) {
+          res = await fetch(`/api/projects/${currentEditSlug}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          res = await fetch('/api/projects', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        if (res.ok) {
+          showToast(isEditing ? 'Project updated successfully' : 'Project created successfully');
+          closeModal();
+          await loadProjects();
+        } else {
+          const err = await res.json();
+          alert('Error saving project: ' + (err.error || 'Unknown error'));
+        }
+      } catch (err) {
+        console.error('Save error:', err);
+        if (isEditing && currentEditSlug) {
+          const idx = projectsData.findIndex(p => p.slug === currentEditSlug);
+          if (idx !== -1) projectsData[idx] = { ...projectsData[idx], ...payload };
+        } else {
+          projectsData.push(payload);
+        }
+        localStorage.setItem('resources_tech_projects', JSON.stringify(projectsData));
+        showToast('Saved to local storage');
+        closeModal();
+        renderProjects();
+        renderStats();
+      }
+    });
+
+    // Delete project
+    async function deleteProject(slug) {
+      if (!confirm(`Are you sure you want to delete project "${slug}"? This action removes it from the database.`)) {
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/projects/${slug}`, { method: 'DELETE' });
+        if (res.ok) {
+          showToast(`Project "${slug}" deleted`);
+          await loadProjects();
+        } else {
+          alert('Failed to delete project');
+        }
+      } catch (err) {
+        projectsData = projectsData.filter(p => p.slug !== slug);
+        localStorage.setItem('resources_tech_projects', JSON.stringify(projectsData));
+        showToast(`Project "${slug}" deleted from local store`);
+        renderProjects();
+        renderStats();
+      }
+    }
+
+    // Keyboard ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+
+    // Initial load
+    loadProjects();
+  </script>
+</body>
+</html>
