@@ -281,24 +281,6 @@
     .login-back-link:hover {
       color: #ffffff;
     }
-
-    /* Helper info badge */
-    .cred-hint {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px dashed rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      font-size: 12px;
-      color: #999999;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .cred-hint strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
   </style>
 </head>
 <body>
@@ -327,7 +309,7 @@
       <div class="form-group">
         <label class="form-label" for="username">Username</label>
         <div class="input-wrapper">
-          <input type="text" id="username" class="form-input" placeholder="admin" required autofocus autocomplete="username" />
+          <input type="text" id="username" class="form-input" placeholder="Enter username" required autofocus autocomplete="username" />
         </div>
       </div>
 
@@ -358,12 +340,6 @@
       <button type="submit" class="btn-submit" id="btnSubmit">
         <span>Authenticate &amp; Enter CMS</span>
       </button>
-
-      <!-- Credentials Helper Card -->
-      <div class="cred-hint">
-        <div>Username: <strong>admin</strong></div>
-        <div>Password: <strong>ResourcesTech2026!</strong></div>
-      </div>
     </form>
 
     <div class="login-footer">
@@ -377,7 +353,7 @@
   </div>
 
   <script>
-    // Expected SHA-256 hash for ResourcesTech2026! with salt
+    // Salted cryptographic hash verification
     const AUTH_SALT = 'resources_tech_salt_2026';
     const VALID_USER = 'admin';
     const VALID_PASS_HASH = '765c4b8b4add35c31d8a8ced757868c23eabfbe55c4726a14d29702b05ec0474';
