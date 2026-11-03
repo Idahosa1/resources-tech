@@ -514,6 +514,148 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  // =========================================================================
+  // 8. 3D Padlock Combination Permutation & Blink Animation
+  // =========================================================================
+  function initPadlockAnimation() {
+    const pinContainers = document.querySelectorAll('.framer-padlock-pins');
+    if (!pinContainers.length) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    pinContainers.forEach((container) => {
+      const pins = container.querySelectorAll('.framer-padlock-pin');
+      if (pins.length < 3) return;
+
+      const span1 = pins[0].querySelector('span');
+      const span2 = pins[1].querySelector('span');
+      const span3 = pins[2].querySelector('span');
+
+      if (!span1 || !span2 || !span3) return;
+
+      let isVisible = false;
+      let activeTimeout = null;
+
+      function getRandomDigit(exclude) {
+        let d;
+        do {
+          d = Math.floor(Math.random() * 10).toString();
+        } while (d === exclude);
+        return d;
+      }
+
+      function resetPins() {
+        pins[0].classList.remove('is-success', 'is-permuting', 'is-waiting');
+        pins[1].classList.remove('is-success', 'is-permuting', 'is-waiting');
+        pins[2].classList.remove('is-success', 'is-permuting', 'is-waiting');
+        span3.classList.remove('is-blinking');
+        span1.textContent = '4';
+        span2.textContent = '0';
+        span3.textContent = '_';
+      }
+
+      function runSequence() {
+        if (!isVisible) return;
+
+        // Reset all states
+        resetPins();
+
+        // 1. Box 1: Run permutations
+        pins[0].classList.add('is-permuting');
+        const p1Start = Date.now();
+        const p1Duration = 620;
+
+        function permuteBox1() {
+          if (!isVisible) return;
+          if (Date.now() - p1Start < p1Duration) {
+            span1.textContent = getRandomDigit(span1.textContent);
+            activeTimeout = setTimeout(permuteBox1, 45);
+          } else {
+            // Lock onto 4 with green stroke glow
+            span1.textContent = '4';
+            pins[0].classList.remove('is-permuting');
+            pins[0].classList.add('is-success');
+
+            // Pause before starting Box 2
+            activeTimeout = setTimeout(startBox2, 180);
+          }
+        }
+
+        // 2. Box 2: Run permutations
+        function startBox2() {
+          if (!isVisible) return;
+          pins[1].classList.add('is-permuting');
+          const p2Start = Date.now();
+          const p2Duration = 620;
+
+          function permuteBox2() {
+            if (!isVisible) return;
+            if (Date.now() - p2Start < p2Duration) {
+              span2.textContent = getRandomDigit(span2.textContent);
+              activeTimeout = setTimeout(permuteBox2, 45);
+            } else {
+              // Lock onto 0 with green stroke glow
+              span2.textContent = '0';
+              pins[1].classList.remove('is-permuting');
+              pins[1].classList.add('is-success');
+
+              // Proceed to Box 3 dash blinking
+              activeTimeout = setTimeout(startBox3, 140);
+            }
+          }
+
+          permuteBox2();
+        }
+
+        // 3. Box 3: Dash blinks waiting for input for 1200ms
+        function startBox3() {
+          if (!isVisible) return;
+          pins[2].classList.add('is-waiting');
+          span3.classList.add('is-blinking');
+
+          // Keep blinking for 1200ms, then restart the sequence
+          activeTimeout = setTimeout(() => {
+            if (!isVisible) return;
+            span3.classList.remove('is-blinking');
+            pins[2].classList.remove('is-waiting');
+
+            // Subtle pause before the loop restarts
+            activeTimeout = setTimeout(runSequence, 280);
+          }, 1200);
+        }
+
+        permuteBox1();
+      }
+
+      // IntersectionObserver for performance
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (!isVisible) {
+                isVisible = true;
+                runSequence();
+              }
+            } else {
+              isVisible = false;
+              if (activeTimeout) clearTimeout(activeTimeout);
+              resetPins();
+            }
+          });
+        }, { threshold: 0.25 });
+
+        observer.observe(container);
+      } else {
+        isVisible = true;
+        runSequence();
+      }
+    });
+  }
+
+  initPadlockAnimation();
+
   // Run once on initial load
   onScroll();
 });
